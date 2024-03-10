@@ -3,6 +3,10 @@
 //Använd Redux Toolkit för att hantera en fråga som ställs i QuestionComponent och
 // sedan svaras på i AnswerComponent.
 
+import AnswerComponent from "./AnswerComponent";
+import QuestionComponent from "./QuestionComponent";
+import { store } from "./store";
+import { Provider } from "react-redux";
 // State: Skapa en store och en questionSlice som hanterar en fråga och ett svar.
 // questionSlice ska innehålla tillstånd för question (en sträng) och answer
 // (en sträng), med actions för att sätta en ny fråga och svara på den.
@@ -15,3 +19,11 @@
 // på frågan. När svaret skickas, ska det också lagras i Redux store och visas
 // under inputfältet.
 
+export default function App() {
+	return (
+		<Provider store={store}>
+			<QuestionComponent />
+			<AnswerComponent />
+		</Provider>
+	);
+}
